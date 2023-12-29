@@ -87,3 +87,11 @@ func (us *AccountService) CreateAccount(user *model.User) (model.UserInfo, error
 	}
 	return model.UserInfo{}, errors.New("username already exists")
 }
+
+func (us *AccountService) UpdatePass(user *model.User) error {
+	_, err:= us.Login(user)
+	if err != nil {
+		return err	
+	}
+	return nil
+}
